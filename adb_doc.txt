@@ -1,0 +1,145 @@
+环境配置：
+nojs、appnium环境匹配
+https://www.cnblogs.com/erweimalaoshi/p/13204948.html
+
+模拟器：
+夜神模拟器端口号：62001
+海马模拟器端口号：26944
+逍遥模拟器端口号：21503
+MuMu模拟器端口号：7555
+天天模拟器端口号：6555
+---------------------------------
+使用命令查看运行程序开出的端口：
+netstat -nb
+netstat -anp
+netstat -ano
+cls ---清屏
+taskkill /im xx.exe
+taskkill /pid pid进程号
+---------------------------------
+adb devices    ---查看当前连接了那些设备
+adb shell screencap '/sdcard/xx'   ----截图存放路径
+adb push '本地文件路径' /sdcard/xx ----推送到设备上的路径
+adb pull /sdcard/XX  'E:\shangxiaoyu\python'  --从设备上下载文件到本地
+获取包名3种方式：
+1、aapt dump badging "存放apk的路径"
+2、adb shell
+   > cd /data/app
+   > ls
+3、adb shell pm list package ---以列表的形式展示包名
+4、adb kill-server  关闭adb服务
+   adb start-server 启动adb服务
+   adb shell monkey -v 20  ----发送20个随机事件-v打印日志信息 -S seed随机数
+5、保存到电脑上：adb shell money -v 100 >E:\shangxiaoyu\python
+6、注意保存到手机上必须换行写
+》adb shell
+》monkey -v -v 100 >/sdcard/1.txt
+7、标准流和错误流分开保存
+adb shell monkey -v 100 1>E:\shangxiaoyu\1.txt 2>E:\shangxiaoyu\error.txt
+8、获取启动Activity
+aapt dump badging "xx.apk" | findstr launchable-activity
+adb shell logcat | grep -i ActivityManager
+
+9、获取当前窗口的Activity
+adb shell dumpsys window windows | findstr “Current”
+adb shell dumpsys window windows | grep -i current
+10.比较全面的adb命令
+https://www.cnblogs.com/chengchengla1990/p/5641086.html
+adb shell dumpsys cpuinfo ：获取本机CPU占有率
+adb shell getprop | findstr dalvik ：本机内存的使用情况
+adb 获取 Activity的信息，类名
+adb shell dumpsys activity activities 
+adb shell am force-stop 包名  即可强行关闭进程
+adb shell am start -n 包名/启动类的名称
+adb shell getprop | findstr dalvik ：本机内存的使用情况
+adb shell dumpsys meminfo +包名：应用的内存使用情况
+fps 查看
+adb shell dumpsys gfxinfo +包名
+
+1.抓取设备所有日志：
+adb logcat >> D:\mysolution\log.txt
+2.抓取设备所有报警日志：
+adb logcat *:W >> D:\mysolution\wlog.txt
+3.抓取设备中所有错误日志：
+adb logcat *:E >> D:\mysolution\elog.txt
+4.清空设备所有日志：
+adb logcat -c
+5.杀掉进程
+adb shell kill -9 <logcat_pid>
+6.获取手机屏幕分辨率
+adb shell "dumpsys window | grep mUnrestrictedScreen"
+7.adb reboot recovery重启进入recovery模式
+8.adb shell am start -n package/launch activity
+------------------------------------------------------------------------
+webDriverScrip（客户端,建立连接、发送指令） →appnium(服务器)→bootstrap.jar
+id
+name
+class
+list
+相对定位
+uitomator：id ,name, className, 
+	find_element_by_android_uiautomator('new UiSelector().resourceId("com.tal.kaoyan:id/login_email_edittext")')
+	find_element_by_android_uiautomator('new UiSelector().text("请输入用户名")')
+	find_element_by_android_uiautomator('new UiSelector().className("android.widget.EditText")')
+	find_element_by_accessibility_id('content-desc')
+	find_Elements_By_Android_UIAutomator("new UiSelector().text(\"QQ登录\")");
+
+appium获取toast信息，必须设置desirve[“automationName”] = “UiAutomator2”
+---------------------------------------------------------------------------------------------------
+adb shell monkey压力稳定性测试：
+包含11大事件：
+触摸事件、手势事件、二指缩放事件、轨迹事件、屏幕旋转事件、启动Activity事件、
+基本导航事件、主要导航事件、系统按键事件、键盘事件、其他类型事件。
+--pct-touch：触摸事件（1.Action_Down、2.Action_up）
+--pct-motion:手势事件（1.Action_Down、2.Action_move、3.Action_up）
+--pct-pinchzoom:二指缩放事件（1.Action_Down、Action_point_down、2.Action_move、3.Action_point_up、Action_up）
+--pct-trackball:轨迹事件
+--pct-rotation:旋转事件（横屏、竖屏）
+--pct-nav :导航 （）
+--pct-majornav:主要导航事件。例如：键盘的中间键、回退按键、菜单按键（一个Key（ACTION_DOWN）和一个Key（ACTION_UP）组成的）
+--pct-syskeys:系统按键事件。例如：点击HOME键、返回键、音量调节键
+--pct-appswitch: 启动Activity事件
+--pct-flip:键盘事件
+--pct-anyevent:其他类型事件
+--ignore-security-exceptions 应用程序权限错误发生后继续发送事件
+--ignore-timeouts 超时错误继续发送事件
+--ignore-crashes  应用程序奔溃后继续发送事件
+--throttle:设置间隔时间，每一指令之间加上固定的间隔时间
+------------------------------------------------------------------
+Monkey进行压力测试：
+1.获取指定包名  -p
+2.11大事件参数，分析当前app每一个参数所占的百分比
+  操作行为比较多的事件，百分比可以设置大一些
+  触摸事件 50， 手势事件 20， 横竖：2
+3.-s参数，记录一次操作
+  防止一些意外情况发生 --ignore--crashes
+  复现步骤的时候慢一下 --throttle 时间间隔
+4.开发要看日志
+  -v 日志输出，标准流和错误流分开-
+-----------------------------------------------------------------
+分析过程：
+1.指定包名 -p com.baidu.BaiduMap
+  -c com.baidu.BaiduMap/com.baidu.baidumaps.MapsActivity
+2.分析百度地图app主要事件，触摸事件占比20%， 手势事件30， 二指缩放事件30 ,轨迹事件10
+  --pct-touch 20 --pct-motion 30 --pct-pinchzoom 30 --pct-trackball 10
+3.-s 设置随机数，记录一次操作，方便后续复现问题
+  --ignore-crashes 忽视程序崩溃，继续后续事件的操作
+  --ignore-timeouts 忽视事件超时
+  --throttle 设置间隔时间，让程序慢一点
+4.输出日志，把标准流和错误流分开放入指定文件，便于开发定位问题
+  -v
+adb shell monkey -p com.baidu.BaiduMap -s 1000 --pct-touch 30 --pct-motion 10 --pct-appswitch 20 --ignore-crashes --ignore-timeouts --throttle 30000 -v 5 1>E:\shangxiaoyu\python\1000.txt 2>E:\shangxiaoyu\python\error.txt
+----------------------------------------------------------------------------------------------------------------
+adb shell moneky  -f /sdcard/monkey-1.txt -s 1595506014729 -v 1
+----------------------------------------------------------------------------------------------------------------
+5.monkeyScript常用命令介绍
+adb shell monkey -f <scriptfile> <event-count>
+DispatchTrackball 轨迹球事件
+DispatchPointer   点击事件
+DispatchString(string) 输入字符串事件
+LaunchActivity(package, Activity)启动应用
+UserWait(1000)等待事件
+DispatchPress(66) 回车键
+----------------------------------------------------------------------------------------------------------------
+
+
