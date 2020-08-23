@@ -1,0 +1,129 @@
+git环境搭建、git详细使用教程、快速上手git(分布式版本控制工具)
+笔记参考地址：
+https://www.cnblogs.com/erweimalaoshi/p/13529275.html
+
+配置环境变量：
+D:\Program Files (x86)\Git\cmd;
+D:\Program Files (x86)\Git\bin;
+D:\Program Files (x86)\Git\mingw64\libexec\git-core;
+-----------------------------------------------------
+git bash here:进入git命令行界面
+git config --global user.name 'sxy' (设置用户名)
+git config --global user.email 'shangxiaoyu736@163.com' (设置邮箱)
+git config --list(查看配置信息)
+-----------------------------------------------------
+注意：git config --global 参数,有了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置
+Git:分布式版本控制系统
+SVN是集中式版本控制系统
+
+git init(把当前这个目录变成git可以管理的仓库，目录下会多了一个.git的目录)
+git add wenjian.txt
+git commit -m "1-提交wenjian.txt"
+git status (查看是否有修改的文件或者新增的文件)
+git diff wenjian.txt(查看文件修改了什么内容)
+git add wenjian.txt (①修改文件后，本地提交到暂存区)
+git status
+git commit -m "2-修改wenjian.txt" (②修改文件后提交到工作区)
+git status
+git log(查看日志)
+git log --pretty=oneline(查看简化的日志信息)
+git reset --hard head^(回退到上一个版本，head^^回退到上上次版本，以此类推)
+git log(查看日志)
+git reset --hard head~100 (回退到前100个版本)
+git reflog (查看所有的日志及版本号)
+git reset --hard 版本号(通过版本号回退或者恢复到指定的版本)
+
+git add .(把当前目录下所有文件提交到暂存区)
+git commit -m "一次性提交所有文件，包含修改的wenjian.txt和新增wenjian002.txt"
+git status
+
+(①未提交到暂存区时修改文件，撤销就回到版本库一模一样的状态，git status查看当前状态)
+(②提交到暂存区未到工作区时修改文件，撤销就回到暂存区状态)
+(③提交到工作区，无法撤销，只能通过版本回退的方式git reset --hard head^或者git reset --hard 版本号)
+git restore -- wenjian.txt
+
+
+删除文件后
+git add/rm wenjian2.txt (提交到暂存区)
+git commit -m '从版本库彻底删除wenjian2.txt' (提交到工作区，从版本库中彻底删除文件)
+提交到暂存区，删除后可恢复删除文件
+git restore -- wenjian2.txt (恢复删除的文件)
+
+windows配置ssh-keygen连接github
+cd ~/.ssh
+ssh-keygen -t rsa -C 'shangxiaoyu736@163.com'
+
+本地库与远程库之间建立链接:
+git remote add origin https://github.com/shangxy111/python.git
+git push -u origin master (本地仓库分支master内容推送到远程仓库上)
+
+git clone https://github.com/shangxy111/tools(把远程仓库克隆到本地)
+
+创建分支：
+$ git checkout -b dev (-b参数表示创建并切换分支)
+$ git branch (查看当前分支，注:输出结果中当前在哪个分支下前面前面会有一个*号)
+$ git checkout master (切换到主分支上)
+$ git merge dev (合并分支，输出内容中Fast-forward信息，Git告诉我们，这次合并是“快进模式”，也就是直接把master指向dev的当前提交，所以合并速度非常快。)
+$ git status
+$ git push origin master(推送到远程仓库上)
+
+$ git branch -d dev (可以删除dev分支)
+$ git branch (查看分支)
+$ git branch name (创建分支)
+
+主分支和dev分支上修改了同一文件，在master合并分支时发生冲突：
+$ git merge dev
+CONFLICT (add/add): Merge conflict in 001.txt
+Auto-merging 001.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+查看发生冲突的文件：
+<<<<<<< HEAD
+this is master 001.txt
+=======
+this is dev branch 001.txt
+>>>>>>> dev
+Git用标记出不同分支的内容，其中<<<HEAD是指主分支修改的内容，>>>>> dev 是指 dev上修改的内容
+
+删除重复的内容，再执行下面命令：
+$ git add 001.txt
+$ git commit -m '整合冲突并提交'
+$ git log
+
+通常合并分支时，git一般使用”Fast forward”模式，在这种模式下，删除分支后，会丢失分支信息。
+$ git merge --no-ff -m "禁用fast forward" dev (用带参数--no-ff来禁用Fast forward模式)
+$ git branch -D dev
+Deleted branch dev (was 98a2b15).
+
+查看日志log
+$ git log --graph --pretty=oneline --abbrev-commit
+*   f80a740 (HEAD -> master) solve
+|\
+| * 98a2b15 dev add 001.txt
+* |   1798179 commit 001.txt
+|\ \
+| * | d5eb9eb dev sencond modify 001.txt
+* | | cf1bcf8 master second modify 001.txt
+* | | 5c7a253 modify conflict
+|\| |
+| * | a399012 dev modify 001.txt
+| * | 10970e4 在分支上新增001.txt
+| |/
+* / e3d838d add 001.txt
+|/
+* 73dcb2b (origin/master, origin/dev) dev分支修改wenjian-2.txt并提交
+
+分支策略：一般master主分支应该是稳定的，也就是用来发布新版本，一般情况下不允许在上面干活，干活一般新建dev分支
+干完活，比如要发布，或者dev分支代码稳定后可以合并到主分支master上来
+
+git stash (将当前的工作现场隐藏起来)
+git status (可以查看当前工作现场是干净的)
+git stash list (查看工作现场还在，git把stash内容存放在某个地方，但需要恢复一下)
+①一种方式：
+  git stash apply
+  git stash drop
+②第二种方式：
+  git stash list 
+  git stash pop (恢复并删除)
+  git stash list
+---------------------------------------------
