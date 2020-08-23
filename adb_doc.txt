@@ -1,145 +1,146 @@
-»·¾³ÅäÖÃ£º
-nojs¡¢appnium»·¾³Æ¥Åä
+ç¯å¢ƒé…ç½®ï¼š
+nojsã€appniumç¯å¢ƒåŒ¹é…
 https://www.cnblogs.com/erweimalaoshi/p/13204948.html
 
-Ä£ÄâÆ÷£º
-Ò¹ÉñÄ£ÄâÆ÷¶Ë¿ÚºÅ£º62001
-º£ÂíÄ£ÄâÆ÷¶Ë¿ÚºÅ£º26944
-åĞÒ£Ä£ÄâÆ÷¶Ë¿ÚºÅ£º21503
-MuMuÄ£ÄâÆ÷¶Ë¿ÚºÅ£º7555
-ÌìÌìÄ£ÄâÆ÷¶Ë¿ÚºÅ£º6555
+æ¨¡æ‹Ÿå™¨ï¼š
+å¤œç¥æ¨¡æ‹Ÿå™¨ç«¯å£å·ï¼š62001
+æµ·é©¬æ¨¡æ‹Ÿå™¨ç«¯å£å·ï¼š26944
+é€é¥æ¨¡æ‹Ÿå™¨ç«¯å£å·ï¼š21503
+MuMuæ¨¡æ‹Ÿå™¨ç«¯å£å·ï¼š7555
+å¤©å¤©æ¨¡æ‹Ÿå™¨ç«¯å£å·ï¼š6555
 ---------------------------------
-Ê¹ÓÃÃüÁî²é¿´ÔËĞĞ³ÌĞò¿ª³öµÄ¶Ë¿Ú£º
+ä½¿ç”¨å‘½ä»¤æŸ¥çœ‹è¿è¡Œç¨‹åºå¼€å‡ºçš„ç«¯å£ï¼š
 netstat -nb
 netstat -anp
 netstat -ano
-cls ---ÇåÆÁ
+cls ---æ¸…å±
 taskkill /im xx.exe
-taskkill /pid pid½ø³ÌºÅ
+taskkill /pid pidè¿›ç¨‹å·
 ---------------------------------
-adb devices    ---²é¿´µ±Ç°Á¬½ÓÁËÄÇĞ©Éè±¸
-adb shell screencap '/sdcard/xx'   ----½ØÍ¼´æ·ÅÂ·¾¶
-adb push '±¾µØÎÄ¼şÂ·¾¶' /sdcard/xx ----ÍÆËÍµ½Éè±¸ÉÏµÄÂ·¾¶
-adb pull /sdcard/XX  'E:\shangxiaoyu\python'  --´ÓÉè±¸ÉÏÏÂÔØÎÄ¼şµ½±¾µØ
-»ñÈ¡°üÃû3ÖÖ·½Ê½£º
-1¡¢aapt dump badging "´æ·ÅapkµÄÂ·¾¶"
-2¡¢adb shell
+adb devices    ---æŸ¥çœ‹å½“å‰è¿æ¥äº†é‚£äº›è®¾å¤‡
+adb shell screencap '/sdcard/xx'   ----æˆªå›¾å­˜æ”¾è·¯å¾„
+adb push 'æœ¬åœ°æ–‡ä»¶è·¯å¾„' /sdcard/xx ----æ¨é€åˆ°è®¾å¤‡ä¸Šçš„è·¯å¾„
+adb pull /sdcard/XX  'E:\shangxiaoyu\python'  --ä»è®¾å¤‡ä¸Šä¸‹è½½æ–‡ä»¶åˆ°æœ¬åœ°
+è·å–åŒ…å3ç§æ–¹å¼ï¼š
+1ã€aapt dump badging "å­˜æ”¾apkçš„è·¯å¾„"
+2ã€adb shell
    > cd /data/app
    > ls
-3¡¢adb shell pm list package ---ÒÔÁĞ±íµÄĞÎÊ½Õ¹Ê¾°üÃû
-4¡¢adb kill-server  ¹Ø±Õadb·şÎñ
-   adb start-server Æô¶¯adb·şÎñ
-   adb shell monkey -v 20  ----·¢ËÍ20¸öËæ»úÊÂ¼ş-v´òÓ¡ÈÕÖ¾ĞÅÏ¢ -S seedËæ»úÊı
-5¡¢±£´æµ½µçÄÔÉÏ£ºadb shell money -v 100 >E:\shangxiaoyu\python
-6¡¢×¢Òâ±£´æµ½ÊÖ»úÉÏ±ØĞë»»ĞĞĞ´
-¡·adb shell
-¡·monkey -v -v 100 >/sdcard/1.txt
-7¡¢±ê×¼Á÷ºÍ´íÎóÁ÷·Ö¿ª±£´æ
+3ã€adb shell pm list package ---ä»¥åˆ—è¡¨çš„å½¢å¼å±•ç¤ºåŒ…å
+4ã€adb kill-server  å…³é—­adbæœåŠ¡
+   adb start-server å¯åŠ¨adbæœåŠ¡
+   adb shell monkey -v 20  ----å‘é€20ä¸ªéšæœºäº‹ä»¶-væ‰“å°æ—¥å¿—ä¿¡æ¯ -S seedéšæœºæ•°
+5ã€ä¿å­˜åˆ°ç”µè„‘ä¸Šï¼šadb shell money -v 100 >E:\shangxiaoyu\python
+6ã€æ³¨æ„ä¿å­˜åˆ°æ‰‹æœºä¸Šå¿…é¡»æ¢è¡Œå†™
+ã€‹adb shell
+ã€‹monkey -v -v 100 >/sdcard/1.txt
+7ã€æ ‡å‡†æµå’Œé”™è¯¯æµåˆ†å¼€ä¿å­˜
 adb shell monkey -v 100 1>E:\shangxiaoyu\1.txt 2>E:\shangxiaoyu\error.txt
-8¡¢»ñÈ¡Æô¶¯Activity
+8ã€è·å–å¯åŠ¨Activity
 aapt dump badging "xx.apk" | findstr launchable-activity
 adb shell logcat | grep -i ActivityManager
 
-9¡¢»ñÈ¡µ±Ç°´°¿ÚµÄActivity
-adb shell dumpsys window windows | findstr ¡°Current¡±
+9ã€è·å–å½“å‰çª—å£çš„Activity
+adb shell dumpsys window windows | findstr â€œCurrentâ€
 adb shell dumpsys window windows | grep -i current
-10.±È½ÏÈ«ÃæµÄadbÃüÁî
+10.æ¯”è¾ƒå…¨é¢çš„adbå‘½ä»¤
 https://www.cnblogs.com/chengchengla1990/p/5641086.html
-adb shell dumpsys cpuinfo £º»ñÈ¡±¾»úCPUÕ¼ÓĞÂÊ
-adb shell getprop | findstr dalvik £º±¾»úÄÚ´æµÄÊ¹ÓÃÇé¿ö
-adb »ñÈ¡ ActivityµÄĞÅÏ¢£¬ÀàÃû
-adb shell dumpsys activity activities 
-adb shell am force-stop °üÃû  ¼´¿ÉÇ¿ĞĞ¹Ø±Õ½ø³Ì
-adb shell am start -n °üÃû/Æô¶¯ÀàµÄÃû³Æ
-adb shell getprop | findstr dalvik £º±¾»úÄÚ´æµÄÊ¹ÓÃÇé¿ö
-adb shell dumpsys meminfo +°üÃû£ºÓ¦ÓÃµÄÄÚ´æÊ¹ÓÃÇé¿ö
-fps ²é¿´
-adb shell dumpsys gfxinfo +°üÃû
 
-1.×¥È¡Éè±¸ËùÓĞÈÕÖ¾£º
+adb shell dumpsys cpuinfo ï¼šè·å–æœ¬æœºCPUå æœ‰ç‡
+adb shell getprop | findstr dalvik ï¼šæœ¬æœºå†…å­˜çš„ä½¿ç”¨æƒ…å†µ
+adb è·å– Activityçš„ä¿¡æ¯ï¼Œç±»å
+adb shell dumpsys activity activities 
+adb shell am force-stop åŒ…å  å³å¯å¼ºè¡Œå…³é—­è¿›ç¨‹
+adb shell am start -n åŒ…å/å¯åŠ¨ç±»çš„åç§°
+adb shell getprop | findstr dalvik ï¼šæœ¬æœºå†…å­˜çš„ä½¿ç”¨æƒ…å†µ
+adb shell dumpsys meminfo +åŒ…åï¼šåº”ç”¨çš„å†…å­˜ä½¿ç”¨æƒ…å†µ
+fps æŸ¥çœ‹
+adb shell dumpsys gfxinfo +åŒ…å
+
+1.æŠ“å–è®¾å¤‡æ‰€æœ‰æ—¥å¿—ï¼š
 adb logcat >> D:\mysolution\log.txt
-2.×¥È¡Éè±¸ËùÓĞ±¨¾¯ÈÕÖ¾£º
+2.æŠ“å–è®¾å¤‡æ‰€æœ‰æŠ¥è­¦æ—¥å¿—ï¼š
 adb logcat *:W >> D:\mysolution\wlog.txt
-3.×¥È¡Éè±¸ÖĞËùÓĞ´íÎóÈÕÖ¾£º
+3.æŠ“å–è®¾å¤‡ä¸­æ‰€æœ‰é”™è¯¯æ—¥å¿—ï¼š
 adb logcat *:E >> D:\mysolution\elog.txt
-4.Çå¿ÕÉè±¸ËùÓĞÈÕÖ¾£º
+4.æ¸…ç©ºè®¾å¤‡æ‰€æœ‰æ—¥å¿—ï¼š
 adb logcat -c
-5.É±µô½ø³Ì
+5.æ€æ‰è¿›ç¨‹
 adb shell kill -9 <logcat_pid>
-6.»ñÈ¡ÊÖ»úÆÁÄ»·Ö±æÂÊ
+6.è·å–æ‰‹æœºå±å¹•åˆ†è¾¨ç‡
 adb shell "dumpsys window | grep mUnrestrictedScreen"
-7.adb reboot recoveryÖØÆô½øÈërecoveryÄ£Ê½
+7.adb reboot recoveryé‡å¯è¿›å…¥recoveryæ¨¡å¼
 8.adb shell am start -n package/launch activity
 ------------------------------------------------------------------------
-webDriverScrip£¨¿Í»§¶Ë,½¨Á¢Á¬½Ó¡¢·¢ËÍÖ¸Áî£© ¡úappnium(·şÎñÆ÷)¡úbootstrap.jar
+webDriverScripï¼ˆå®¢æˆ·ç«¯,å»ºç«‹è¿æ¥ã€å‘é€æŒ‡ä»¤ï¼‰ â†’appnium(æœåŠ¡å™¨)â†’bootstrap.jar
 id
 name
 class
 list
-Ïà¶Ô¶¨Î»
-uitomator£ºid ,name, className, 
+ç›¸å¯¹å®šä½
+uitomatorï¼šid ,name, className, 
 	find_element_by_android_uiautomator('new UiSelector().resourceId("com.tal.kaoyan:id/login_email_edittext")')
-	find_element_by_android_uiautomator('new UiSelector().text("ÇëÊäÈëÓÃ»§Ãû")')
+	find_element_by_android_uiautomator('new UiSelector().text("è¯·è¾“å…¥ç”¨æˆ·å")')
 	find_element_by_android_uiautomator('new UiSelector().className("android.widget.EditText")')
 	find_element_by_accessibility_id('content-desc')
-	find_Elements_By_Android_UIAutomator("new UiSelector().text(\"QQµÇÂ¼\")");
+	find_Elements_By_Android_UIAutomator("new UiSelector().text(\"QQç™»å½•\")");
 
-appium»ñÈ¡toastĞÅÏ¢£¬±ØĞëÉèÖÃdesirve[¡°automationName¡±] = ¡°UiAutomator2¡±
+appiumè·å–toastä¿¡æ¯ï¼Œå¿…é¡»è®¾ç½®desirve[â€œautomationNameâ€] = â€œUiAutomator2â€
 ---------------------------------------------------------------------------------------------------
-adb shell monkeyÑ¹Á¦ÎÈ¶¨ĞÔ²âÊÔ£º
-°üº¬11´óÊÂ¼ş£º
-´¥ÃşÊÂ¼ş¡¢ÊÖÊÆÊÂ¼ş¡¢¶şÖ¸Ëõ·ÅÊÂ¼ş¡¢¹ì¼£ÊÂ¼ş¡¢ÆÁÄ»Ğı×ªÊÂ¼ş¡¢Æô¶¯ActivityÊÂ¼ş¡¢
-»ù±¾µ¼º½ÊÂ¼ş¡¢Ö÷Òªµ¼º½ÊÂ¼ş¡¢ÏµÍ³°´¼üÊÂ¼ş¡¢¼üÅÌÊÂ¼ş¡¢ÆäËûÀàĞÍÊÂ¼ş¡£
---pct-touch£º´¥ÃşÊÂ¼ş£¨1.Action_Down¡¢2.Action_up£©
---pct-motion:ÊÖÊÆÊÂ¼ş£¨1.Action_Down¡¢2.Action_move¡¢3.Action_up£©
---pct-pinchzoom:¶şÖ¸Ëõ·ÅÊÂ¼ş£¨1.Action_Down¡¢Action_point_down¡¢2.Action_move¡¢3.Action_point_up¡¢Action_up£©
---pct-trackball:¹ì¼£ÊÂ¼ş
---pct-rotation:Ğı×ªÊÂ¼ş£¨ºáÆÁ¡¢ÊúÆÁ£©
---pct-nav :µ¼º½ £¨£©
---pct-majornav:Ö÷Òªµ¼º½ÊÂ¼ş¡£ÀıÈç£º¼üÅÌµÄÖĞ¼ä¼ü¡¢»ØÍË°´¼ü¡¢²Ëµ¥°´¼ü£¨Ò»¸öKey£¨ACTION_DOWN£©ºÍÒ»¸öKey£¨ACTION_UP£©×é³ÉµÄ£©
---pct-syskeys:ÏµÍ³°´¼üÊÂ¼ş¡£ÀıÈç£ºµã»÷HOME¼ü¡¢·µ»Ø¼ü¡¢ÒôÁ¿µ÷½Ú¼ü
---pct-appswitch: Æô¶¯ActivityÊÂ¼ş
---pct-flip:¼üÅÌÊÂ¼ş
---pct-anyevent:ÆäËûÀàĞÍÊÂ¼ş
---ignore-security-exceptions Ó¦ÓÃ³ÌĞòÈ¨ÏŞ´íÎó·¢Éúºó¼ÌĞø·¢ËÍÊÂ¼ş
---ignore-timeouts ³¬Ê±´íÎó¼ÌĞø·¢ËÍÊÂ¼ş
---ignore-crashes  Ó¦ÓÃ³ÌĞò±¼À£ºó¼ÌĞø·¢ËÍÊÂ¼ş
---throttle:ÉèÖÃ¼ä¸ôÊ±¼ä£¬Ã¿Ò»Ö¸ÁîÖ®¼ä¼ÓÉÏ¹Ì¶¨µÄ¼ä¸ôÊ±¼ä
+adb shell monkeyå‹åŠ›ç¨³å®šæ€§æµ‹è¯•ï¼š
+åŒ…å«11å¤§äº‹ä»¶ï¼š
+è§¦æ‘¸äº‹ä»¶ã€æ‰‹åŠ¿äº‹ä»¶ã€äºŒæŒ‡ç¼©æ”¾äº‹ä»¶ã€è½¨è¿¹äº‹ä»¶ã€å±å¹•æ—‹è½¬äº‹ä»¶ã€å¯åŠ¨Activityäº‹ä»¶ã€
+åŸºæœ¬å¯¼èˆªäº‹ä»¶ã€ä¸»è¦å¯¼èˆªäº‹ä»¶ã€ç³»ç»ŸæŒ‰é”®äº‹ä»¶ã€é”®ç›˜äº‹ä»¶ã€å…¶ä»–ç±»å‹äº‹ä»¶ã€‚
+--pct-touchï¼šè§¦æ‘¸äº‹ä»¶ï¼ˆ1.Action_Downã€2.Action_upï¼‰
+--pct-motion:æ‰‹åŠ¿äº‹ä»¶ï¼ˆ1.Action_Downã€2.Action_moveã€3.Action_upï¼‰
+--pct-pinchzoom:äºŒæŒ‡ç¼©æ”¾äº‹ä»¶ï¼ˆ1.Action_Downã€Action_point_downã€2.Action_moveã€3.Action_point_upã€Action_upï¼‰
+--pct-trackball:è½¨è¿¹äº‹ä»¶
+--pct-rotation:æ—‹è½¬äº‹ä»¶ï¼ˆæ¨ªå±ã€ç«–å±ï¼‰
+--pct-nav :å¯¼èˆª ï¼ˆï¼‰
+--pct-majornav:ä¸»è¦å¯¼èˆªäº‹ä»¶ã€‚ä¾‹å¦‚ï¼šé”®ç›˜çš„ä¸­é—´é”®ã€å›é€€æŒ‰é”®ã€èœå•æŒ‰é”®ï¼ˆä¸€ä¸ªKeyï¼ˆACTION_DOWNï¼‰å’Œä¸€ä¸ªKeyï¼ˆACTION_UPï¼‰ç»„æˆçš„ï¼‰
+--pct-syskeys:ç³»ç»ŸæŒ‰é”®äº‹ä»¶ã€‚ä¾‹å¦‚ï¼šç‚¹å‡»HOMEé”®ã€è¿”å›é”®ã€éŸ³é‡è°ƒèŠ‚é”®
+--pct-appswitch: å¯åŠ¨Activityäº‹ä»¶
+--pct-flip:é”®ç›˜äº‹ä»¶
+--pct-anyevent:å…¶ä»–ç±»å‹äº‹ä»¶
+--ignore-security-exceptions åº”ç”¨ç¨‹åºæƒé™é”™è¯¯å‘ç”Ÿåç»§ç»­å‘é€äº‹ä»¶
+--ignore-timeouts è¶…æ—¶é”™è¯¯ç»§ç»­å‘é€äº‹ä»¶
+--ignore-crashes  åº”ç”¨ç¨‹åºå¥”æºƒåç»§ç»­å‘é€äº‹ä»¶
+--throttle:è®¾ç½®é—´éš”æ—¶é—´ï¼Œæ¯ä¸€æŒ‡ä»¤ä¹‹é—´åŠ ä¸Šå›ºå®šçš„é—´éš”æ—¶é—´
 ------------------------------------------------------------------
-Monkey½øĞĞÑ¹Á¦²âÊÔ£º
-1.»ñÈ¡Ö¸¶¨°üÃû  -p
-2.11´óÊÂ¼ş²ÎÊı£¬·ÖÎöµ±Ç°appÃ¿Ò»¸ö²ÎÊıËùÕ¼µÄ°Ù·Ö±È
-  ²Ù×÷ĞĞÎª±È½Ï¶àµÄÊÂ¼ş£¬°Ù·Ö±È¿ÉÒÔÉèÖÃ´óÒ»Ğ©
-  ´¥ÃşÊÂ¼ş 50£¬ ÊÖÊÆÊÂ¼ş 20£¬ ºáÊú£º2
-3.-s²ÎÊı£¬¼ÇÂ¼Ò»´Î²Ù×÷
-  ·ÀÖ¹Ò»Ğ©ÒâÍâÇé¿ö·¢Éú --ignore--crashes
-  ¸´ÏÖ²½ÖèµÄÊ±ºòÂıÒ»ÏÂ --throttle Ê±¼ä¼ä¸ô
-4.¿ª·¢Òª¿´ÈÕÖ¾
-  -v ÈÕÖ¾Êä³ö£¬±ê×¼Á÷ºÍ´íÎóÁ÷·Ö¿ª-
+Monkeyè¿›è¡Œå‹åŠ›æµ‹è¯•ï¼š
+1.è·å–æŒ‡å®šåŒ…å  -p
+2.11å¤§äº‹ä»¶å‚æ•°ï¼Œåˆ†æå½“å‰appæ¯ä¸€ä¸ªå‚æ•°æ‰€å çš„ç™¾åˆ†æ¯”
+  æ“ä½œè¡Œä¸ºæ¯”è¾ƒå¤šçš„äº‹ä»¶ï¼Œç™¾åˆ†æ¯”å¯ä»¥è®¾ç½®å¤§ä¸€äº›
+  è§¦æ‘¸äº‹ä»¶ 50ï¼Œ æ‰‹åŠ¿äº‹ä»¶ 20ï¼Œ æ¨ªç«–ï¼š2
+3.-så‚æ•°ï¼Œè®°å½•ä¸€æ¬¡æ“ä½œ
+  é˜²æ­¢ä¸€äº›æ„å¤–æƒ…å†µå‘ç”Ÿ --ignore--crashes
+  å¤ç°æ­¥éª¤çš„æ—¶å€™æ…¢ä¸€ä¸‹ --throttle æ—¶é—´é—´éš”
+4.å¼€å‘è¦çœ‹æ—¥å¿—
+  -v æ—¥å¿—è¾“å‡ºï¼Œæ ‡å‡†æµå’Œé”™è¯¯æµåˆ†å¼€-
 -----------------------------------------------------------------
-·ÖÎö¹ı³Ì£º
-1.Ö¸¶¨°üÃû -p com.baidu.BaiduMap
+åˆ†æè¿‡ç¨‹ï¼š
+1.æŒ‡å®šåŒ…å -p com.baidu.BaiduMap
   -c com.baidu.BaiduMap/com.baidu.baidumaps.MapsActivity
-2.·ÖÎö°Ù¶ÈµØÍ¼appÖ÷ÒªÊÂ¼ş£¬´¥ÃşÊÂ¼şÕ¼±È20%£¬ ÊÖÊÆÊÂ¼ş30£¬ ¶şÖ¸Ëõ·ÅÊÂ¼ş30 ,¹ì¼£ÊÂ¼ş10
+2.åˆ†æç™¾åº¦åœ°å›¾appä¸»è¦äº‹ä»¶ï¼Œè§¦æ‘¸äº‹ä»¶å æ¯”20%ï¼Œ æ‰‹åŠ¿äº‹ä»¶30ï¼Œ äºŒæŒ‡ç¼©æ”¾äº‹ä»¶30 ,è½¨è¿¹äº‹ä»¶10
   --pct-touch 20 --pct-motion 30 --pct-pinchzoom 30 --pct-trackball 10
-3.-s ÉèÖÃËæ»úÊı£¬¼ÇÂ¼Ò»´Î²Ù×÷£¬·½±ãºóĞø¸´ÏÖÎÊÌâ
-  --ignore-crashes ºöÊÓ³ÌĞò±ÀÀ££¬¼ÌĞøºóĞøÊÂ¼şµÄ²Ù×÷
-  --ignore-timeouts ºöÊÓÊÂ¼ş³¬Ê±
-  --throttle ÉèÖÃ¼ä¸ôÊ±¼ä£¬ÈÃ³ÌĞòÂıÒ»µã
-4.Êä³öÈÕÖ¾£¬°Ñ±ê×¼Á÷ºÍ´íÎóÁ÷·Ö¿ª·ÅÈëÖ¸¶¨ÎÄ¼ş£¬±ãÓÚ¿ª·¢¶¨Î»ÎÊÌâ
+3.-s è®¾ç½®éšæœºæ•°ï¼Œè®°å½•ä¸€æ¬¡æ“ä½œï¼Œæ–¹ä¾¿åç»­å¤ç°é—®é¢˜
+  --ignore-crashes å¿½è§†ç¨‹åºå´©æºƒï¼Œç»§ç»­åç»­äº‹ä»¶çš„æ“ä½œ
+  --ignore-timeouts å¿½è§†äº‹ä»¶è¶…æ—¶
+  --throttle è®¾ç½®é—´éš”æ—¶é—´ï¼Œè®©ç¨‹åºæ…¢ä¸€ç‚¹
+4.è¾“å‡ºæ—¥å¿—ï¼ŒæŠŠæ ‡å‡†æµå’Œé”™è¯¯æµåˆ†å¼€æ”¾å…¥æŒ‡å®šæ–‡ä»¶ï¼Œä¾¿äºå¼€å‘å®šä½é—®é¢˜
   -v
 adb shell monkey -p com.baidu.BaiduMap -s 1000 --pct-touch 30 --pct-motion 10 --pct-appswitch 20 --ignore-crashes --ignore-timeouts --throttle 30000 -v 5 1>E:\shangxiaoyu\python\1000.txt 2>E:\shangxiaoyu\python\error.txt
 ----------------------------------------------------------------------------------------------------------------
 adb shell moneky  -f /sdcard/monkey-1.txt -s 1595506014729 -v 1
 ----------------------------------------------------------------------------------------------------------------
-5.monkeyScript³£ÓÃÃüÁî½éÉÜ
+5.monkeyScriptå¸¸ç”¨å‘½ä»¤ä»‹ç»
 adb shell monkey -f <scriptfile> <event-count>
-DispatchTrackball ¹ì¼£ÇòÊÂ¼ş
-DispatchPointer   µã»÷ÊÂ¼ş
-DispatchString(string) ÊäÈë×Ö·û´®ÊÂ¼ş
-LaunchActivity(package, Activity)Æô¶¯Ó¦ÓÃ
-UserWait(1000)µÈ´ıÊÂ¼ş
-DispatchPress(66) »Ø³µ¼ü
+DispatchTrackball è½¨è¿¹çƒäº‹ä»¶
+DispatchPointer   ç‚¹å‡»äº‹ä»¶
+DispatchString(string) è¾“å…¥å­—ç¬¦ä¸²äº‹ä»¶
+LaunchActivity(package, Activity)å¯åŠ¨åº”ç”¨
+UserWait(1000)ç­‰å¾…äº‹ä»¶
+DispatchPress(66) å›è½¦é”®
 ----------------------------------------------------------------------------------------------------------------
 
 
