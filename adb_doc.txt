@@ -1,5 +1,5 @@
 环境配置：
-nojs、appnium环境匹配
+nodejs、appnium环境匹配
 https://www.cnblogs.com/erweimalaoshi/p/13204948.html
 
 模拟器：
@@ -8,7 +8,7 @@ https://www.cnblogs.com/erweimalaoshi/p/13204948.html
 逍遥模拟器端口号：21503
 MuMu模拟器端口号：7555
 天天模拟器端口号：6555
----------------------------------
+------------------------------------------------------------------
 使用命令查看运行程序开出的端口：
 netstat -nb
 netstat -anp
@@ -16,7 +16,7 @@ netstat -ano
 cls ---清屏
 taskkill /im xx.exe
 taskkill /pid pid进程号
----------------------------------
+------------------------------------------------------------------
 adb devices    ---查看当前连接了那些设备
 adb shell screencap '/sdcard/xx'   ----截图存放路径
 adb push '本地文件路径' /sdcard/xx ----推送到设备上的路径
@@ -56,7 +56,7 @@ adb shell getprop | findstr dalvik ：本机内存的使用情况
 adb shell dumpsys meminfo +包名：应用的内存使用情况
 fps 查看
 adb shell dumpsys gfxinfo +包名
-
+------------------------------------------------------------------
 1.抓取设备所有日志：
 adb logcat >> D:\mysolution\log.txt
 2.抓取设备所有报警日志：
